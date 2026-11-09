@@ -28,9 +28,9 @@ def ensure_mix():
     if not wav.exists():
         fc = (
             "[0:a]aresample=48000,volume=0.78[m];"
-            "[1:a]aresample=48000,volume=1.18[v];"
-            "[m][v]sidechaincompress=threshold=0.025:ratio=6:attack=15:release=280[md];"
-            "[md][v]amix=inputs=2:duration=longest:dropout_transition=3:normalize=0,"
+            "[1:a]aresample=48000,volume=1.18,asplit=2[vsc][vmix];"
+            "[m][vsc]sidechaincompress=threshold=0.025:ratio=6:attack=15:release=280[md];"
+            "[md][vmix]amix=inputs=2:duration=longest:dropout_transition=3:normalize=0,"
             "alimiter=limit=0.90,loudnorm=I=-16:TP=-1.5:LRA=8[out]"
         )
         subprocess.run([
