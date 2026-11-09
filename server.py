@@ -19,17 +19,17 @@ def fetch(url, dst):
 def ensure_mix():
     backing = ROOT/"backing.mp3"
     vocal = ROOT/"vocal.mp3"
-    wav = ROOT/"top_top_rainbow_final_mix.wav"
-    mp3 = ROOT/"top_top_rainbow_final_mix.mp3"
+    wav = ROOT/"top_top_rainbow_music_forward_mix.wav"
+    mp3 = ROOT/"top_top_rainbow_music_forward_mix.mp3"
     if not backing.exists():
         fetch(BACKING, backing)
     if not vocal.exists():
         fetch(VOCAL, vocal)
     if not wav.exists():
         fc = (
-            "[0:a]aresample=48000,volume=0.78[m];"
-            "[1:a]aresample=48000,volume=1.18,asplit=2[vsc][vmix];"
-            "[m][vsc]sidechaincompress=threshold=0.025:ratio=6:attack=15:release=280[md];"
+            "[0:a]aresample=48000,volume=1.00[m];"
+            "[1:a]aresample=48000,volume=0.92,asplit=2[vsc][vmix];"
+            "[m][vsc]sidechaincompress=threshold=0.08:ratio=2.2:attack=12:release=220[md];"
             "[md][vmix]amix=inputs=2:duration=longest:dropout_transition=3:normalize=0,"
             "alimiter=limit=0.90,loudnorm=I=-16:TP=-1.5:LRA=8[out]"
         )
