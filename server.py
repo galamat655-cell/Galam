@@ -4,8 +4,8 @@ PORT = int(os.environ.get("PORT", "10000"))
 ROOT = pathlib.Path("/tmp/mix")
 ROOT.mkdir(parents=True, exist_ok=True)
 
-BACKING = "https://v3b.fal.media/files/b/0ab1d277/vg3azhCbiCttox9mvMJ0y_top_top_rainbow_126bpm.mp3"
-VOCAL = "https://v3b.fal.media/files/b/0ab1d2af/Wnck4_AqAdz_H6ZPS_kt8_160336189849601-9XQwy3UgoMKRfod4Z3hHUc.mp3"
+BACKING = "https://galam-temp-audio-mix-20261110.onrender.com/backing.mp3"
+VOCAL = "https://galam-temp-audio-mix-20261110.onrender.com/vocal.mp3"
 
 def fetch(url, dst):
     req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0"})
