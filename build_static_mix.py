@@ -32,8 +32,8 @@ download(VOCAL_URL, vocal)
 
 ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
 filters = (
-    "[0:a]aresample=48000,volume=1.00[m];"
-    "[1:a]aresample=48000,volume=0.92,asplit=2[vsc][vmix];"
+    "[0:a]aresample=48000,volume=0.94[m];"
+    "[1:a]aresample=48000,volume=1.10,asplit=2[vsc][vmix];"
     "[m][vsc]sidechaincompress=threshold=0.08:ratio=2.2:attack=12:release=220[md];"
     "[md][vmix]amix=inputs=2:duration=longest:dropout_transition=3:normalize=0,"
     "alimiter=limit=0.90,loudnorm=I=-16:TP=-1.5:LRA=8[out]"
